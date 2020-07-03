@@ -33,12 +33,13 @@ Things you may want to cover:
 
 ### Association
 - has_many :posts
+- has_many :groups_users
 - has many :groups, through: :groups_users
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null :false|
+|name|string|null :false|
 
 ### Association
 - has_many :posts
