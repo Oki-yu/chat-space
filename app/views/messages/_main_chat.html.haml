@@ -1,0 +1,42 @@
+.main-chat
+  .main-header
+    .left-header
+      .group__name
+        さだ
+      .group__member
+        まさし
+    .right-header
+      = link_to "#", class: "right-header__btn" do
+        Edit
+
+  .main-message
+    .chat-info
+      .chat-info__user__name
+        まさし
+      .chat-info__date
+        2020/7/7(Tus)
+    .chat-message
+      歌います。
+    .chat-info
+      .chat-info__user__name
+        まさし
+      .chat-info__date
+        2020/7/7(Tus)
+    .chat-message
+      それでは
+    .chat-info
+      .chat-info__user__name
+        まさし
+      .chat-info__date
+        2020/7/7(Tus)
+    .chat-message
+      聞いてください。
+
+  .main-footer
+    %form.new_message
+      .chat-form
+        %input{type: "text", class: "chat-form__text", placeholder: "type a message"}
+        %label{class: "chat-form__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "chat-form__image__file"}
+      %input{type: "submit", class: "submit-btn", value: "send"}    
