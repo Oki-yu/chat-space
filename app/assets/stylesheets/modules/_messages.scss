@@ -31,8 +31,10 @@
               justify-content: end;
               .top-items__btn{
                 text-decoration: none;
-                color: #ffffff;
                 margin-left: 5px;
+                .fas{
+                  color: #ffffff;
+                }
               }
             }
         }
