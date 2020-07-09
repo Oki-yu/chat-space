@@ -1,42 +1,30 @@
 .main-chat
   .main-header
     .left-header
+      
       .group__name
-        さだ
+        = @group.name
       .group__member
-        まさし
+        - @group.users.each do |user|
+          = user.name
     .right-header
-      = link_to "#", class: "right-header__btn" do
-        Edit
+      .right-header__btn
+        = link_to 'Edit', edit_group_path(@group.id), class: 'edit-btn'
+
+
+        
+          
 
   .main-message
-    .chat-info
-      .chat-info__user__name
-        まさし
-      .chat-info__date
-        2020/7/7(Tus)
-    .chat-message
-      歌います。
-    .chat-info
-      .chat-info__user__name
-        まさし
-      .chat-info__date
-        2020/7/7(Tus)
-    .chat-message
-      それでは
-    .chat-info
-      .chat-info__user__name
-        まさし
-      .chat-info__date
-        2020/7/7(Tus)
-    .chat-message
-      やっぱいいや、ライブだし、歌はCDで聞けるもん。
+    = render @messages
+
+
 
   .main-footer
-    %form.new_message
+    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .chat-form
-        %input{type: "text", class: "chat-form__text", placeholder: "type a message"}
-        %label{class: "chat-form__image"}
+        = f.text_field :content, class: 'chat-form__text', placeholder: 'type a message'
+        = f.label :image, class: 'chat-form__image' do
           = icon('fas', 'image')
-          %input{type: "file", class: "chat-form__image__file"}
-      %input{type: "submit", class: "submit-btn", value: "send"}    
+          = f.file_field :image, class: 'chat-form__image__file'
+      = f.submit 'send', class: 'submit-btn'    
