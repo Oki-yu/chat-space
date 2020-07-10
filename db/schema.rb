@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_07_07_103153) do
 
   create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.bigint "group_id"
-    t.bigint "user_id"
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_group_users_on_group_id"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_103153) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "content"
     t.string "image"
-    t.bigint "group_id"
-    t.bigint "user_id"
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_messages_on_group_id"
