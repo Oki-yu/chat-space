@@ -42,6 +42,7 @@
     .side-main{
       height: calc(100vh - 100px);
       background-color: #2f3e51;
+      overflow: scroll;
       .group{
         padding: 20px 20px 40px 20px;
         &__name{
@@ -106,6 +107,7 @@
       padding: 35px 0 0 40px;
       height: calc(100vh - 190px);
       background-color: #fafafa;
+      overflow: scroll;
       .chat-info{
         display: flex;
         &__user__name{
