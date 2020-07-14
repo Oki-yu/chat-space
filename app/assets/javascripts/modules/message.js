@@ -2,24 +2,8 @@ $(function(){
   function buildHTML(message){
     if ( message.image ) {
       let html =
-        `<div class="chat-info">
-          <div class="chat-info__user__name">
-             ${message.user_name}
-          </div>
-          <div class="chat-info__date">
-            ${message.created_at}
-          </div>
-        </div>
-          <div class="chat-message">
-            <p class="Message__content">
-              ${message.content}
-            </p>
-            <img class="Message__image" src="${message.image}">
-          </div>`
-      return html;  
-    } else {
-      let html =
-         `<div class="chat-info">
+        `<div class="MessageBox" data-message-id=${message.id}>
+          <div class="chat-info">
             <div class="chat-info__user__name">
               ${message.user_name}
             </div>
@@ -31,10 +15,31 @@ $(function(){
             <p class="Message__content">
               ${message.content}
             </p>
-          </div>`
+            <img class="Message__image" src="${message.image}">
+          </div>
+        </div>`
+      return html;  
+    } else {
+      let html =
+        `<div class="MessageBox" data-message-id=${message.id}>
+          <div class="chat-info">
+            <div class="chat-info__user__name">
+              ${message.user_name}
+            </div>
+            <div class="chat-info__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="chat-message">
+            <p class="Message__content">
+              ${message.content}
+            </p>
+          </div>
+        </div>`
         return html;
       };
     } 
+
   
   $('.new-message').on('submit', function(e){
     e.preventDefault();
